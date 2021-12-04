@@ -9,4 +9,4 @@ jupyter lab clean
 pip install . --no-cache-dir
 rm -rf ~/.cache
 
-wget -q -O gapminder.csv http://github.com/Yofr3H/Estimation_stochastic_SIS
+wget -q -O rate.csv http://github.com/Yofr3H/Estimation_stochastic_SIS
