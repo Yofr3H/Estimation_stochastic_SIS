@@ -16,7 +16,7 @@ end
 # ╔═╡ cc938745-4775-480d-90c4-9e2692ca2b4e
 begin
     import Pkg
-    Pkg.activate(mktempdir())
+    Pkg.activate("https://github.com/Yofr3H/Estimation_stochastic_SIS")
     Pkg.add([
         Pkg.PackageSpec(name="Plots", version="0.29.9"),
         Pkg.PackageSpec(name="PlutoUI", version="0.7.1"),
