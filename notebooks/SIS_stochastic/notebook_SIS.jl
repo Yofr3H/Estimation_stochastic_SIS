@@ -15,18 +15,18 @@ end
 
 # ╔═╡ cc938745-4775-480d-90c4-9e2692ca2b4e
 begin
-    import Pkg
-    Pkg.activate("https://github.com/Yofr3H/Estimation_stochastic_SIS")
-    Pkg.add([
-        Pkg.PackageSpec(name="Plots", version="0.29.9"),
-        Pkg.PackageSpec(name="PlutoUI", version="0.7.1"),
-        Pkg.PackageSpec(name="Distributions", version="0.23.8"),
-        Pkg.PackageSpec(name="LaTeXStrings", version="1.3.0"),
-      	Pkg.PackageSpec(name="Random"),
-        Pkg.PackageSpec(name="PlotlyJS", version="0.14.1"),
-        Pkg.PackageSpec(name="DataFrames", version="0.21.8"),
-        Pkg.PackageSpec(name="CSV", version="0.9.10"),
-     ])
+    #import Pkg
+    #Pkg.activate("https://github.com/Yofr3H/Estimation_stochastic_SIS")
+    #Pkg.add([
+    #    Pkg.PackageSpec(name="Plots", version="0.29.9"),
+    #    Pkg.PackageSpec(name="PlutoUI", version="0.7.1"),
+    #    Pkg.PackageSpec(name="Distributions", version="0.23.8"),
+    #    Pkg.PackageSpec(name="LaTeXStrings", version="1.3.0"),
+    #  	Pkg.PackageSpec(name="Random"),
+    #    Pkg.PackageSpec(name="PlotlyJS", version="0.14.1"),
+    #    Pkg.PackageSpec(name="DataFrames", version="0.21.8"),
+    #    Pkg.PackageSpec(name="CSV", version="0.9.10"),
+    # ])
     using Plots, PlutoUI, Distributions, LaTeXStrings, Random, PlotlyJS, DataFrames, CSV
 end
 
