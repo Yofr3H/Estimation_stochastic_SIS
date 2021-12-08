@@ -18,6 +18,7 @@ COPY --chown=${NB_USER}:users ./notebooks ./notebooks
 COPY --chown=${NB_USER}:users ./Project.toml ./Project.toml
 COPY --chown=${NB_USER}:users ./Manifest.toml ./Manifest.toml
 
+COPY --chown=${NB_USER}:users ./notebooks/SIS_stochastic/notebook_SIS.jl ./notebooks/SIS_stochastic/notebook_SIS.jl
 COPY --chown=${NB_USER}:users ./create_sysimage.jl ./create_sysimage.jl
 
 ENV USER_HOME_DIR /home/${NB_USER}
