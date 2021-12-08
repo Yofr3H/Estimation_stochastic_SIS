@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-#ULIA_PROJECT="/home/jovyan"
+JULIA_PROJECT="/home/jovyan"
 #julia -e "import Pkg; Pkg.Registry.update(); Pkg.instantiate(); Pkg.status(); Pkg.precompile()"
 
 #jupyter labextension install @jupyterlab/server-proxy
@@ -9,4 +9,4 @@
 #pip install . --no-cache-dir
 #rm -rf ~/.cache
 
-#get -q -O rate.csv http://github.com/Yofr3H/Estimation_stochastic_SIS/notebooks/SIS_stochastic/rate.csv
+wget -q -O rate.csv http://github.com/Yofr3H/Estimation_stochastic_SIS/notebooks/SIS_stochastic/rate.csv
