@@ -18,7 +18,7 @@ COPY --chown=${NB_USER}:users ./notebooks ./notebooks
 COPY --chown=${NB_USER}:users ./Project.toml ./Project.toml
 COPY --chown=${NB_USER}:users ./Manifest.toml ./Manifest.toml
 
-COPY --chown=${NB_USER}:users ./notebooks/SIS_stochastic/notebook_SIS.jl ./notebooks/SIS_stochastic/notebook_SIS.jl
+COPY --chown=${NB_USER}:users ./run_packages.jl ./run_packages.jl
 COPY --chown=${NB_USER}:users ./create_sysimage.jl ./create_sysimage.jl
 
 ENV USER_HOME_DIR /home/${NB_USER}
@@ -31,8 +31,7 @@ RUN julia -e "import Pkg; Pkg.Registry.update(); Pkg.instantiate();"
 USER root
 RUN apt-get update && \
     apt-get install -y --no-install-recommends build-essential && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* && \
-    wget -q -O rate.csv http://github.com/Yofr3H/Estimation_stochastic_SIS/notebooks/SIS_stochastic/rate.csv
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 RUN julia create_sysimage.jl
 
 USER ${NB_USER}
