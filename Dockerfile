@@ -5,8 +5,7 @@ RUN wget https://julialang-s3.julialang.org/bin/linux/x64/1.6/julia-1.6.2-linux-
     tar -xvzf julia-1.6.2-linux-x86_64.tar.gz && \
     mv julia-1.6.2 /opt/ && \
     ln -s /opt/julia-1.6.2/bin/julia /usr/local/bin/julia && \
-    rm julia-1.6.2-linux-x86_64.tar.gz && \
-    wget -q -O rate.csv http://github.com/Yofr3H/Estimation_stochastic_SIS/notebooks/SIS_stochastic/rate.csv
+    rm julia-1.6.2-linux-x86_64.tar.gz 
 
 USER ${NB_USER}
 
@@ -32,7 +31,8 @@ RUN julia -e "import Pkg; Pkg.Registry.update(); Pkg.instantiate();"
 USER root
 RUN apt-get update && \
     apt-get install -y --no-install-recommends build-essential && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+    apt-get clean && rm -rf /var/lib/apt/lists/* && \
+    wget -q -O rate.csv http://github.com/Yofr3H/Estimation_stochastic_SIS/notebooks/SIS_stochastic/rate.csv
 RUN julia create_sysimage.jl
 
 USER ${NB_USER}
