@@ -85,7 +85,7 @@ end
 
 # ╔═╡ 242e1093-dbaa-41c1-ad33-7521738b2ec1
 begin
-	r = CSV.read("D:\\2_2020\\work_flor\\SIS\\13feb\\rate.csv",DataFrame)
+	r = CSV.read("rate.csv",DataFrame)	
 	plotlyjs()
 	p = Plots.plot(1:length(r.I0),r.I0,
 		label="Number infected per day",color="orange",
