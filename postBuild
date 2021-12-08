@@ -9,4 +9,4 @@
 #pip install . --no-cache-dir
 #rm -rf ~/.cache
 
-wget -q -O rate.csv http://github.com/Yofr3H/Estimation_stochastic_SIS/notebooks/SIS_stochastic/rate.csv
+#get -q -O rate.csv http://github.com/Yofr3H/Estimation_stochastic_SIS/notebooks/SIS_stochastic/rate.csv
