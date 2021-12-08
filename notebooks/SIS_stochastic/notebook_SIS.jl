@@ -16,7 +16,7 @@ end
 # ╔═╡ cc938745-4775-480d-90c4-9e2692ca2b4e
 begin
     #import Pkg
-    #Pkg.activate("https://github.com/Yofr3H/Estimation_stochastic_SIS")
+    #Pkg.activate(mktempdir())
     #Pkg.add([
     #    Pkg.PackageSpec(name="Plots", version="0.29.9"),
     #    Pkg.PackageSpec(name="PlutoUI", version="0.7.1"),
@@ -26,12 +26,14 @@ begin
     #    Pkg.PackageSpec(name="PlotlyJS", version="0.14.1"),
     #    Pkg.PackageSpec(name="DataFrames", version="0.21.8"),
     #    Pkg.PackageSpec(name="CSV", version="0.9.10"),
+    #	 Pkg.PackageSpec(name="ORCA", version="0.5.0"),
+    #   Pkg.PackageSpec(name="Pluto", version="0.14.7")
     # ])
-    using Plots, PlutoUI, Distributions, LaTeXStrings, Random, PlotlyJS, DataFrames, CSV
+    using Plots, ORCA, PlutoUI, Distributions, LaTeXStrings, Random, PlotlyJS, DataFrames, CSV
 end
 
 # ╔═╡ 87f5c872-4435-11ec-07e4-6ba03780c882
-#  Creates a trayectory of SIS model where the infection rate is tieme dependent and has a random noise 
+#  Creates a trayectory of SIS model where the infection rate is time dependent and has a random noise 
 #  S_n,I_n,R_n
 #  T is the steps number.
 
@@ -83,7 +85,7 @@ end
 
 # ╔═╡ 242e1093-dbaa-41c1-ad33-7521738b2ec1
 begin
-	r = CSV.read("rate.csv",DataFrame)
+	r = CSV.read("D:\\2_2020\\work_flor\\SIS\\13feb\\rate.csv",DataFrame)
 	plotlyjs()
 	p = Plots.plot(1:length(r.I0),r.I0,
 		label="Number infected per day",color="orange",
@@ -162,8 +164,9 @@ end
 # ╔═╡ c339772d-1a72-4c6a-bc92-934e20ef66bf
 begin
    	slider_center_iconfidence = @bind center_iconfidence Slider(0.5:0.05:0.95, default = 0.5,show_value=true );
-	slider_min_I0 = @bind I0_min Slider(m_k:(length(r.I0) - Time_latency), default = m_k,show_value=true);
-   
+	slider_min_I0 = @bind I0_min Slider(m_k:(length(r.I0) - Time_latency),
+		show_value=true);
+   #default = m_k
 	md"""
 	**Confidence interval centered in quantile: $slider_center_iconfidence**
 	
@@ -175,9 +178,10 @@ end
 
 # ╔═╡ f93ed310-371c-4aa7-9466-dcbb8222db1f
 begin
-	slider_max_I0 = @bind I0_max Slider(I0_min:length(r.I0), 
+	slider_max_I0 = @bind I0_max Slider((I0_min + 1) :length(r.I0), 
 							default = (I0_min + m_k + Time_latency),
 							show_value=true)
+	#
 	md"""
 	**Final day = $slider_max_I0**
 	"""
@@ -424,7 +428,7 @@ end
 
 # ╔═╡ Cell order:
 # ╟─87f5c872-4435-11ec-07e4-6ba03780c882
-# ╠═cc938745-4775-480d-90c4-9e2692ca2b4e
+# ╟─cc938745-4775-480d-90c4-9e2692ca2b4e
 # ╟─8a7be597-266c-4f02-b7b6-eea924c45fa3
 # ╟─242e1093-dbaa-41c1-ad33-7521738b2ec1
 # ╟─0bc6dd10-eaca-4f96-95ac-78d974ca0a22
