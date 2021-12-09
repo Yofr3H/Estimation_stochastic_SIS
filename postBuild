@@ -1,12 +1,12 @@
-!/bin/bash -e
+#!/bin/bash -e
 
-JULIA_PROJECT="/home/jovyan"
-julia -e "import Pkg; Pkg.Registry.update(); Pkg.instantiate(); Pkg.status(); Pkg.precompile()"
+#JULIA_PROJECT="/home/jovyan"
+#julia -e "import Pkg; Pkg.Registry.update(); Pkg.instantiate(); Pkg.status(); Pkg.precompile()"
 
-jupyter labextension install @jupyterlab/server-proxy
-jupyter lab build
-jupyter lab clean
-pip install . --no-cache-dir
-rm -rf ~/.cache
+#jupyter labextension install @jupyterlab/server-proxy
+#jupyter lab build
+#jupyter lab clean
+#pip install . --no-cache-dir
+#rm -rf ~/.cache
 
-wget -q -O rate.csv http://github.com/Yofr3H/Estimation_stochastic_SIS/notebooks/SIS_stochastic/rate.csv
+#wget -q -O rate.csv http://github.com/Yofr3H/Estimation_stochastic_SIS/notebooks/SIS_stochastic/rate.csv
