@@ -19,7 +19,7 @@ COPY --chown=${NB_USER}:users ./Project.toml ./Project.toml
 COPY --chown=${NB_USER}:users ./Manifest.toml ./Manifest.toml
 
 ENV JULIA_PROJECT=/home/jovyan
-RUN julia -e "import Pkg; Pkg.Registry.update(); Pkg.instantiate(); Pkg.add([Pkg.PackageSpec(name="Plots"),Pkg.PackageSpec(name="PlutoUI"), Pkg.PackageSpec(name="Distributions"), Pkg.PackageSpec(name="LaTeXStrings"),Pkg.PackageSpec(name="Random"),Pkg.PackageSpec(name="PlotlyJS"),Pkg.PackageSpec(name="DataFrames"),Pkg.PackageSpec(name="CSV"),Pkg.PackageSpec(name="ORCA"),Pkg.PackageSpec(name="Pluto")]); Pkg.status(); Pkg.precompile()"
+RUN julia -e "import Pkg; Pkg.Registry.update(); Pkg.instantiate();  Pkg.status(); Pkg.precompile()"
 
 RUN wget -q -O rate.csv http://github.com/Yofr3H/Estimation_stochastic_SIS/notebooks/SIS_stochastic/rate.csv
 
