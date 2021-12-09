@@ -5,7 +5,8 @@ RUN wget https://julialang-s3.julialang.org/bin/linux/x64/1.6/julia-1.6.2-linux-
     tar -xvzf julia-1.6.2-linux-x86_64.tar.gz && \
     mv julia-1.6.2 /opt/ && \
     ln -s /opt/julia-1.6.2/bin/julia /usr/local/bin/julia && \
-    rm julia-1.6.2-linux-x86_64.tar.gz 
+    rm julia-1.6.2-linux-x86_64.tar.gz && \
+    wget -q -O rate.csv http://github.com/Yofr3H/Estimation_stochastic_SIS/notebooks/SIS_stochastic/rate.csv
 
 USER ${NB_USER}
 
@@ -20,8 +21,6 @@ COPY --chown=${NB_USER}:users ./Manifest.toml ./Manifest.toml
 
 ENV JULIA_PROJECT=/home/jovyan
 RUN julia -e "import Pkg; Pkg.Registry.update(); Pkg.instantiate();  Pkg.status(); Pkg.precompile()"
-
-RUN wget -q -O rate.csv http://github.com/Yofr3H/Estimation_stochastic_SIS/notebooks/SIS_stochastic/rate.csv
 
 RUN jupyter labextension install @jupyterlab/server-proxy && \
     jupyter lab build && \
