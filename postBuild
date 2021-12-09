@@ -1,4 +1,4 @@
-#!/bin/bash -e
+!/bin/bash -e
 
 JULIA_PROJECT="/home/jovyan"
 #julia -e "import Pkg; Pkg.Registry.update(); Pkg.instantiate(); Pkg.status(); Pkg.precompile()"
