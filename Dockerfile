@@ -22,8 +22,6 @@ COPY --chown=${NB_USER}:users ./Manifest.toml ./Manifest.toml
 ENV JULIA_PROJECT=/home/jovyan
 RUN julia -e "import Pkg; Pkg.Registry.update(); Pkg.instantiate();  Pkg.status(); Pkg.precompile()"
 
-RUN wget -q -O rate.csv http://github.com/Yofr3H/Estimation_stochastic_SIS/notebooks/SIS_stochastic/rate.csv
-
 RUN jupyter labextension install @jupyterlab/server-proxy && \
     jupyter lab build && \
     jupyter lab clean && \
